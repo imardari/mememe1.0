@@ -22,16 +22,17 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var navbar: UINavigationBar!
     
     // Set the custom UI for our text
-    let memeTextAttributes: [String : Any] = [
+    var memeTextAttributes: [String : Any] = [
         NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
         NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
-        NSAttributedStringKey.font.rawValue: UIFont(name:"HelveticaNeue-Bold", size: 40)!,
+        NSAttributedStringKey.font.rawValue: UIFont(name: "Impact", size: 40)!,
         NSAttributedStringKey.strokeWidth.rawValue: -4.0
     ]
     
     //MARK: View methods
     
     override func viewWillAppear(_ animated: Bool) {
+        
         //If the phone doen't have a camera the cameraButton will be dissabled
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
@@ -46,6 +47,8 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         //Center the text
         topText.textAlignment = .center
         bottomText.textAlignment = .center
+        
+        
     }
     
     //Don't forget to cleanup after youself :)
@@ -155,7 +158,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     func save(memedImage: UIImage) {
-        _ = Meme(topText: topText.text!, bottomText: bottomText.text!, oldImage: imageView.image!, memedImage: generateMemedImage())
+        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, oldImage: imageView.image!, memedImage: generateMemedImage())
     }
 }
 
