@@ -15,17 +15,18 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var navbar: UINavigationBar!
     
     // Set the custom UI for our text
-    let memeTextAttributes:[String:Any] = [
+    let memeTextAttributes: [String : Any] = [
         NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
         NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
-        NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 35)!,
-        NSAttributedStringKey.strokeWidth.rawValue: 4
+        NSAttributedStringKey.font.rawValue: UIFont(name:"HelveticaNeue-Bold", size: 40)!,
+        NSAttributedStringKey.strokeWidth.rawValue: -4.0
     ]
     
     //MARK: View methods
@@ -34,8 +35,9 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         //If the phone doen't have a camera the cameraButton will be dissabled
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
-        //Disable the shareButton if there is no image yet
+        //Disable the shareButton and the cancelButton if there is no image yet
         shareButton.isEnabled = imageView.image == nil ? false : true
+        cancelButton.isEnabled = imageView.image == nil ? false : true
         
         //Set the custom UI for both text fields
         topText.defaultTextAttributes = memeTextAttributes
@@ -46,6 +48,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         bottomText.textAlignment = .center
     }
     
+    //Don't forget to cleanup after youself :)
     override func viewWillDisappear(_ animated: Bool) {
         unsubscribeFromKeyboardNotification()
     }
@@ -80,6 +83,11 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             }
         }
         present(activityVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        let cleanVC = storyboard?.instantiateViewController(withIdentifier: "MemeVC")
+        show(cleanVC!, sender: self)
     }
     
     //MARK: Shift view's frame up and down
