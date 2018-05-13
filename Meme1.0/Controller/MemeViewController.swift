@@ -57,10 +57,10 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //Set both text fields as the delegates of UITextFieldDelegate
         topText.delegate = self
         bottomText.delegate = self
-        
     }
     
     //MARK: IBActions
@@ -189,11 +189,7 @@ extension MemeViewController: UITextFieldDelegate {
 
 extension MemeViewController: ChoosedFontDelegate {
     func didSelectFont(fontName: String) {
-        //Have to figure out how can I pass the fontName parameter to the UIFont(name: )
-//        memeTextAttributes.updateValue(NSAttributedStringKey.font.rawValue, forKey: UIFont(name: fontName, size: 40)!)
-        
-        //For now I at least want to see that whatever row I choose in the SettingsViewController it gets displayed in the textField. But it doesn't :/
-        topText.text = fontName
+        memeTextAttributes.updateValue(UIFont(name: fontName, size: 40)!, forKey: NSAttributedStringKey.font.rawValue)
     }
 
 
