@@ -32,7 +32,6 @@ class SettingsViewController: UIViewController {
     @IBAction func doneButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
 extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {

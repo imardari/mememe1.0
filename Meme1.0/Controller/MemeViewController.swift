@@ -32,7 +32,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     //MARK: View methods
     
     override func viewWillAppear(_ animated: Bool) {
-        //If the phone doen't have a camera the cameraButton will be dissabled
+        //If the phone doesn't have a camera the cameraButton will be dissabled
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
         //Disable the shareButton and the cancelButton if there is no image yet
@@ -46,8 +46,6 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         //Center the text
         topText.textAlignment = .center
         bottomText.textAlignment = .center
-        
-        
     }
     
     //Don't forget to cleanup after youself :)
@@ -191,7 +189,5 @@ extension MemeViewController: ChoosedFontDelegate {
     func didSelectFont(fontName: String) {
         memeTextAttributes.updateValue(UIFont(name: fontName, size: 40)!, forKey: NSAttributedStringKey.font.rawValue)
     }
-
-
 }
 
