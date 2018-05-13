@@ -190,7 +190,7 @@ extension MemeViewController: UITextFieldDelegate {
 extension MemeViewController: ChoosedFontDelegate {
     func didSelectFont(fontName: String) {
         //Have to figure out how can I pass the fontName parameter to the UIFont(name: )
-//        memeTextAttributes.updateValue(NSAttributedStringKey.font.rawValue, forKey: UIFont(name: fontName, size: 40))
+//        memeTextAttributes.updateValue(NSAttributedStringKey.font.rawValue, forKey: UIFont(name: fontName, size: 40)!)
         
         //For now I at least want to see that whatever row I choose in the SettingsViewController it gets displayed in the textField. But it doesn't :/
         topText.text = fontName

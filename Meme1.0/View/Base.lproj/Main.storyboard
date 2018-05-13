@@ -35,7 +35,7 @@
                                             </connections>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem title="Settings" id="tmX-IR-qwc">
+                                            <barButtonItem image="settings" id="tmX-IR-qwc">
                                                 <connections>
                                                     <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" id="3r4-O6-nrC"/>
                                                 </connections>
@@ -83,7 +83,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="sIl-Lr-44U" firstAttribute="trailing" secondItem="vdt-r3-z4r" secondAttribute="trailing" id="3FB-YW-EtV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vdt-r3-z4r" secondAttribute="trailing" id="3V7-hc-8hf"/>
@@ -132,23 +132,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a font" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RO6-ai-OJ1">
-                                <rect key="frame" x="16" y="89" width="343" height="24"/>
+                                <rect key="frame" x="16" y="114" width="343" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C2E-Pr-iro">
-                                <rect key="frame" x="16" y="138" width="343" height="216"/>
+                                <rect key="frame" x="28" y="226" width="320" height="216"/>
                             </pickerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="C2E-Pr-iro" firstAttribute="top" secondItem="RO6-ai-OJ1" secondAttribute="bottom" constant="25" id="1eb-2S-8dE"/>
                             <constraint firstItem="RO6-ai-OJ1" firstAttribute="leading" secondItem="S05-RU-2FQ" secondAttribute="leading" constant="16" id="VWp-H2-paQ"/>
-                            <constraint firstItem="C2E-Pr-iro" firstAttribute="leading" secondItem="S05-RU-2FQ" secondAttribute="leading" constant="16" id="VXM-1V-GwT"/>
-                            <constraint firstItem="RO6-ai-OJ1" firstAttribute="top" secondItem="S05-RU-2FQ" secondAttribute="top" constant="25" id="WcO-Ze-0Gg"/>
+                            <constraint firstItem="RO6-ai-OJ1" firstAttribute="top" secondItem="S05-RU-2FQ" secondAttribute="top" constant="50" id="WcO-Ze-0Gg"/>
+                            <constraint firstItem="C2E-Pr-iro" firstAttribute="centerY" secondItem="KrD-Cm-G5g" secondAttribute="centerY" id="fOj-4Y-ZQw"/>
                             <constraint firstItem="S05-RU-2FQ" firstAttribute="trailing" secondItem="RO6-ai-OJ1" secondAttribute="trailing" constant="16" id="hiR-zT-8zB"/>
-                            <constraint firstItem="S05-RU-2FQ" firstAttribute="trailing" secondItem="C2E-Pr-iro" secondAttribute="trailing" constant="16" id="yfQ-pk-Dc7"/>
+                            <constraint firstItem="C2E-Pr-iro" firstAttribute="centerX" secondItem="KrD-Cm-G5g" secondAttribute="centerX" id="kPo-pu-cct"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S05-RU-2FQ"/>
                     </view>
@@ -179,4 +178,7 @@
             <point key="canvasLocation" x="-79.200000000000003" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settings" width="29" height="29"/>
+    </resources>
 </document>
