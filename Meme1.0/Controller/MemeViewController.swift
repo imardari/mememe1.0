@@ -32,7 +32,6 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     //MARK: View methods
     
     override func viewWillAppear(_ animated: Bool) {
-        
         //If the phone doen't have a camera the cameraButton will be dissabled
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
@@ -61,6 +60,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         //Set both text fields as the delegates of UITextFieldDelegate
         topText.delegate = self
         bottomText.delegate = self
+        
     }
     
     //MARK: IBActions
@@ -89,9 +89,9 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func settingsButtonPressed(_ sender: Any) {
-        let fontVC = storyboard?.instantiateViewController(withIdentifier: "fontVC") as! SettingsTableViewController
-        fontVC.fontChoosedDelegate = self
-        present(fontVC, animated: true, completion: nil)
+        let settingsVC = storyboard?.instantiateViewController(withIdentifier: "pickerVC") as! SettingsViewController
+        settingsVC.choosedFontDelegate = self
+        present(settingsVC, animated: true, completion: nil)
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
@@ -187,11 +187,12 @@ extension MemeViewController: UITextFieldDelegate {
     }
 }
 
-extension MemeViewController: FontChoosedDelegate {
+extension MemeViewController: ChoosedFontDelegate {
     func didSelectFont(fontName: String) {
         //Have to figure out how can I pass the fontName parameter to the UIFont(name: )
-        //memeTextAttributes.updateValue(NSAttributedStringKey.font.rawValue, forKey: UIFont(name: fontName, size: 40))
-        //For now I at least want to see that whatever row I choose in the SettingsTableViewController it gets displayed in the textField. But it doesn :/
+//        memeTextAttributes.updateValue(NSAttributedStringKey.font.rawValue, forKey: UIFont(name: fontName, size: 40))
+        
+        //For now I at least want to see that whatever row I choose in the SettingsViewController it gets displayed in the textField. But it doesn't :/
         topText.text = fontName
     }
 

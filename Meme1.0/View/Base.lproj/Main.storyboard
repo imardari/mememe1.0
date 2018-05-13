@@ -38,7 +38,6 @@
                                             <barButtonItem title="Settings" id="tmX-IR-qwc">
                                                 <connections>
                                                     <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" id="3r4-O6-nrC"/>
-                                                    <segue destination="vRA-JX-3E1" kind="show" identifier="" id="bwQ-Cf-YBv"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem title="Cancel" id="cO5-kE-2xA">
@@ -117,39 +116,49 @@
                         <outlet property="shareButton" destination="l2p-wn-YSU" id="QRB-xp-ZRy"/>
                         <outlet property="toolbar" destination="DIB-Pm-EMi" id="Bj2-8S-eqg"/>
                         <outlet property="topText" destination="GTG-kY-7ON" id="p87-Xa-rMt"/>
+                        <segue destination="W8n-wR-joq" kind="show" id="dWI-iA-mVq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="860" y="133.5832083958021"/>
         </scene>
-        <!--Settings Table View Controller-->
-        <scene sceneID="Bfl-6c-Z5l">
+        <!--Settings View Controller-->
+        <scene sceneID="Ugy-Tm-nR0">
             <objects>
-                <tableViewController storyboardIdentifier="fontVC" id="vRA-JX-3E1" customClass="SettingsTableViewController" customModule="Meme1_0" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dWc-f0-Aw9">
+                <viewController storyboardIdentifier="pickerVC" id="W8n-wR-joq" customClass="SettingsViewController" customModule="Meme1_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KrD-Cm-G5g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a font" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RO6-ai-OJ1">
+                                <rect key="frame" x="16" y="89" width="343" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C2E-Pr-iro">
+                                <rect key="frame" x="16" y="138" width="343" height="216"/>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="bg6-D4-wc0">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bg6-D4-wc0" id="4UD-6T-D2F">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="vRA-JX-3E1" id="8c9-gz-V3Q"/>
-                            <outlet property="delegate" destination="vRA-JX-3E1" id="NA2-ON-jCx"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JjQ-7W-cet" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="C2E-Pr-iro" firstAttribute="top" secondItem="RO6-ai-OJ1" secondAttribute="bottom" constant="25" id="1eb-2S-8dE"/>
+                            <constraint firstItem="RO6-ai-OJ1" firstAttribute="leading" secondItem="S05-RU-2FQ" secondAttribute="leading" constant="16" id="VWp-H2-paQ"/>
+                            <constraint firstItem="C2E-Pr-iro" firstAttribute="leading" secondItem="S05-RU-2FQ" secondAttribute="leading" constant="16" id="VXM-1V-GwT"/>
+                            <constraint firstItem="RO6-ai-OJ1" firstAttribute="top" secondItem="S05-RU-2FQ" secondAttribute="top" constant="25" id="WcO-Ze-0Gg"/>
+                            <constraint firstItem="S05-RU-2FQ" firstAttribute="trailing" secondItem="RO6-ai-OJ1" secondAttribute="trailing" constant="16" id="hiR-zT-8zB"/>
+                            <constraint firstItem="S05-RU-2FQ" firstAttribute="trailing" secondItem="C2E-Pr-iro" secondAttribute="trailing" constant="16" id="yfQ-pk-Dc7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="S05-RU-2FQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="picker" destination="C2E-Pr-iro" id="iQh-JD-1MC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aIX-2S-r2d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1639.2" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1736.8" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="K4E-2L-SNL">
