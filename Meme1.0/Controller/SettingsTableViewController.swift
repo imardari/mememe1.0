@@ -8,22 +8,23 @@
 
 import UIKit
 
+protocol FontChoosedDelegate {
+    func didSelectFont(fontName: String)
+}
+
 class SettingsTableViewController: UITableViewController {
     
-    var fonts = [Font]()
-    var memeVC = MemeViewController()
+    var fontChoosedDelegate: FontChoosedDelegate?
+    var fontFamilyName = [String]()
     
-    let defaults = UserDefaults.standard
+//    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let impact = Font(fontName: "Impact")
-        fonts.append(impact)
-
-        let helvetica = Font(fontName: "Helvetica")
-        fonts.append(helvetica)
-
+        for familyName in UIFont.familyNames {
+            fontFamilyName.append("\(familyName)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,12 +35,12 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fonts.count
+        return fontFamilyName.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = fonts[indexPath.row].fontName
+        cell.textLabel?.text = fontFamilyName[indexPath.row]
 
         return cell
     }
@@ -53,17 +54,10 @@ class SettingsTableViewController: UITableViewController {
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
         
-        let font = fonts[indexPath.row].fontName
-        
-        if font == "Impact" {
-            print("Impact")
-            memeVC.memeTextAttributes.updateValue(UIFont(name: "Impact", size: 20)!, forKey: NSAttributedStringKey.font.rawValue)
-            
-        } else if font == "Helvetica" {
-            print("Helvetica")
-            memeVC.memeTextAttributes.updateValue(UIFont(name: "Helvetica", size: 20)!, forKey: NSAttributedStringKey.font.rawValue)
-        }
-        
+        fontChoosedDelegate?.didSelectFont(fontName: fontFamilyName[indexPath.row])
+        print(fontFamilyName[indexPath.row])
+        dismiss(animated: true, completion: nil)
+
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

@@ -14,7 +14,6 @@
 		FD61FD0620A31B2D003D309F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD61FD0520A31B2D003D309F /* Assets.xcassets */; };
 		FD61FD0920A31B2D003D309F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD61FD0720A31B2D003D309F /* LaunchScreen.storyboard */; };
 		FDAE78BE20A724DA00BB4B95 /* impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDAE78BC20A7249700BB4B95 /* impact.ttf */; };
-		FDAE78C020A728BC00BB4B95 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE78BF20A728BC00BB4B95 /* Font.swift */; };
 		FDAE78C220A735EC00BB4B95 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE78C120A735EC00BB4B95 /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +27,6 @@
 		FD61FD0820A31B2D003D309F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD61FD0A20A31B2D003D309F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDAE78BC20A7249700BB4B95 /* impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = impact.ttf; sourceTree = "<group>"; };
-		FDAE78BF20A728BC00BB4B95 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		FDAE78C120A735EC00BB4B95 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,7 +45,6 @@
 			isa = PBXGroup;
 			children = (
 				FD51E15720A515B1006290C1 /* Meme.swift */,
-				FDAE78BF20A728BC00BB4B95 /* Font.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,7 +177,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDAE78C020A728BC00BB4B95 /* Font.swift in Sources */,
 				FDAE78C220A735EC00BB4B95 /* SettingsTableViewController.swift in Sources */,
 				FD51E15820A515B1006290C1 /* Meme.swift in Sources */,
 				FD61FD0120A31B2C003D309F /* MemeViewController.swift in Sources */,

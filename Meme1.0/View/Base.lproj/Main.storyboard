@@ -37,7 +37,8 @@
                                         <rightBarButtonItems>
                                             <barButtonItem title="Settings" id="tmX-IR-qwc">
                                                 <connections>
-                                                    <segue destination="vRA-JX-3E1" kind="show" id="bwQ-Cf-YBv"/>
+                                                    <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" id="3r4-O6-nrC"/>
+                                                    <segue destination="vRA-JX-3E1" kind="show" identifier="" id="bwQ-Cf-YBv"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem title="Cancel" id="cO5-kE-2xA">
@@ -125,7 +126,7 @@
         <!--Settings Table View Controller-->
         <scene sceneID="Bfl-6c-Z5l">
             <objects>
-                <tableViewController id="vRA-JX-3E1" customClass="SettingsTableViewController" customModule="Meme1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="fontVC" id="vRA-JX-3E1" customClass="SettingsTableViewController" customModule="Meme1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dWc-f0-Aw9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

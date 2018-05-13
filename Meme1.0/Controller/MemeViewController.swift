@@ -88,6 +88,12 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         present(activityVC, animated: true, completion: nil)
     }
     
+    @IBAction func settingsButtonPressed(_ sender: Any) {
+        let fontVC = storyboard?.instantiateViewController(withIdentifier: "fontVC") as! SettingsTableViewController
+        fontVC.fontChoosedDelegate = self
+        present(fontVC, animated: true, completion: nil)
+    }
+    
     @IBAction func cancelButtonPressed(_ sender: Any) {
         let cleanVC = storyboard?.instantiateViewController(withIdentifier: "MemeVC")
         show(cleanVC!, sender: self)
@@ -181,4 +187,11 @@ extension MemeViewController: UITextFieldDelegate {
     }
 }
 
+extension MemeViewController: FontChoosedDelegate {
+    func didSelectFont(fontName: String) {
+        topText.text = fontName
+    }
+
+
+}
 
