@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="diD-xG-iud">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vdt-r3-z4r">
-                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIl-Lr-44U">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="PHx-ER-862"/>
                                 </constraints>
@@ -71,7 +71,7 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="TOP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GTG-kY-7ON">
-                                <rect key="frame" x="16" y="133" width="343" height="20"/>
+                                <rect key="frame" x="16" y="89" width="343" height="20"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -116,7 +116,6 @@
                         <outlet property="shareButton" destination="l2p-wn-YSU" id="QRB-xp-ZRy"/>
                         <outlet property="toolbar" destination="DIB-Pm-EMi" id="Bj2-8S-eqg"/>
                         <outlet property="topText" destination="GTG-kY-7ON" id="p87-Xa-rMt"/>
-                        <segue destination="W8n-wR-joq" kind="show" id="dWI-iA-mVq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -132,22 +131,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a font" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RO6-ai-OJ1">
-                                <rect key="frame" x="16" y="114" width="343" height="24"/>
+                                <rect key="frame" x="16" y="151.5" width="343" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xt3-HM-rgd">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="eGl-1X-rUk"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Settings" id="J3z-0Q-28d">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" id="P2r-kA-xjV">
+                                            <connections>
+                                                <action selector="doneButtonPressed:" destination="W8n-wR-joq" id="NMJ-Rn-Ocg"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C2E-Pr-iro">
                                 <rect key="frame" x="28" y="226" width="320" height="216"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RO6-ai-OJ1" firstAttribute="leading" secondItem="S05-RU-2FQ" secondAttribute="leading" constant="16" id="VWp-H2-paQ"/>
-                            <constraint firstItem="RO6-ai-OJ1" firstAttribute="top" secondItem="S05-RU-2FQ" secondAttribute="top" constant="50" id="WcO-Ze-0Gg"/>
-                            <constraint firstItem="C2E-Pr-iro" firstAttribute="centerY" secondItem="KrD-Cm-G5g" secondAttribute="centerY" id="fOj-4Y-ZQw"/>
-                            <constraint firstItem="S05-RU-2FQ" firstAttribute="trailing" secondItem="RO6-ai-OJ1" secondAttribute="trailing" constant="16" id="hiR-zT-8zB"/>
-                            <constraint firstItem="C2E-Pr-iro" firstAttribute="centerX" secondItem="KrD-Cm-G5g" secondAttribute="centerX" id="kPo-pu-cct"/>
+                            <constraint firstItem="RO6-ai-OJ1" firstAttribute="leading" secondItem="S05-RU-2FQ" secondAttribute="leading" constant="16" id="34x-Hf-mGA"/>
+                            <constraint firstItem="C2E-Pr-iro" firstAttribute="centerY" secondItem="KrD-Cm-G5g" secondAttribute="centerY" id="EyZ-Pq-zac"/>
+                            <constraint firstItem="xt3-HM-rgd" firstAttribute="trailing" secondItem="S05-RU-2FQ" secondAttribute="trailing" id="JvA-9I-Ubp"/>
+                            <constraint firstItem="xt3-HM-rgd" firstAttribute="top" secondItem="S05-RU-2FQ" secondAttribute="top" id="Lsi-Gw-TqN"/>
+                            <constraint firstItem="C2E-Pr-iro" firstAttribute="top" secondItem="RO6-ai-OJ1" secondAttribute="bottom" constant="50" id="Zj9-89-U0c"/>
+                            <constraint firstItem="xt3-HM-rgd" firstAttribute="leading" secondItem="S05-RU-2FQ" secondAttribute="leading" id="Zrm-Rt-kVz"/>
+                            <constraint firstItem="C2E-Pr-iro" firstAttribute="centerX" secondItem="KrD-Cm-G5g" secondAttribute="centerX" id="aYl-2u-SvS"/>
+                            <constraint firstItem="S05-RU-2FQ" firstAttribute="trailing" secondItem="RO6-ai-OJ1" secondAttribute="trailing" constant="16" id="bBW-vi-se3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S05-RU-2FQ"/>
                     </view>
@@ -158,24 +175,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIX-2S-r2d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1736.8" y="133.5832083958021"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="K4E-2L-SNL">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="diD-xG-iud" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xQw-LO-GFm">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="VHg-3e-b92"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DfL-wx-7bu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-79.200000000000003" y="133.5832083958021"/>
         </scene>
     </scenes>
     <resources>

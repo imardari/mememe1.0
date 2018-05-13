@@ -28,6 +28,11 @@ class SettingsViewController: UIViewController {
             fontFamilyName.append("\(familyName)")
         }
     }
+    
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -45,7 +50,5 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         choosedFontDelegate?.didSelectFont(fontName: fontFamilyName[row])
-        dismiss(animated: true, completion: nil)
-        print(fontFamilyName[row])
     }
 }
