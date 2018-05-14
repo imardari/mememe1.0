@@ -32,6 +32,9 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     //MARK: View methods
     
     override func viewWillAppear(_ animated: Bool) {
+        //Subscribe to keyboard notifications
+        subscribeToKeyboardNotifications()
+        
         //If the phone doesn't have a camera the cameraButton will be dissabled
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
@@ -40,25 +43,12 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         cancelButton.isEnabled = imageView.image == nil ? false : true
         
         //Set the custom UI for both text fields
-        topText.defaultTextAttributes = memeTextAttributes
-        bottomText.defaultTextAttributes = memeTextAttributes
-        
-        //Center the text
-        topText.textAlignment = .center
-        bottomText.textAlignment = .center
+        configureTexFields(textAttribute: memeTextAttributes, textAlignment: .center)
     }
     
     //Don't forget to cleanup after youself :)
     override func viewWillDisappear(_ animated: Bool) {
         unsubscribeFromKeyboardNotification()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //Set both text fields as the delegates of UITextFieldDelegate
-        topText.delegate = self
-        bottomText.delegate = self
     }
     
     //MARK: IBActions
@@ -97,10 +87,23 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         show(cleanVC!, sender: self)
     }
     
+    //Group textField's UI and delegates in one method
+    func configureTexFields(textAttribute: [String: Any], textAlignment: NSTextAlignment){
+        topText.defaultTextAttributes = textAttribute
+        bottomText.defaultTextAttributes = textAttribute
+        topText.textAlignment = textAlignment
+        bottomText.textAlignment = textAlignment
+        topText.delegate = self
+        bottomText.delegate = self
+    }
+    
     //MARK: Shift view's frame up and down
     
     @objc func keyboardWillShow(_ notification: Notification) {
-        view.frame.origin.y = 0 - getKeyboardHeight(notification)
+        //Move the view only when the bottom text field has focus
+        if bottomText.isEditing {
+            view.frame.origin.y = 0 - getKeyboardHeight(notification)
+        }
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
@@ -170,20 +173,13 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
 extension MemeViewController: UITextFieldDelegate {
     
-    //Move the view only when the bottom text field has focus
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == bottomText {
-            subscribeToKeyboardNotifications()
-        } else {
-            unsubscribeFromKeyboardNotification()
-        }
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
 }
+
+//MARK: ChoosedFontDelegate methods
 
 extension MemeViewController: ChoosedFontDelegate {
     func didSelectFont(fontName: String) {
